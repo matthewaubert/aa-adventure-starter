@@ -22,6 +22,7 @@ function printHelp() {
         "  Type 'take <item>' to take an item",
         "  Type 'drop <item>' to drop an item",
         "  Type 'eat <item>' to eat a food item",
+        "  Type 'observe <item>' to observe an item",
         "  Type 'n', 's', 'e', 'w' to move",
         ""
     ];
@@ -92,6 +93,11 @@ function processCommand() {
 
             player.eatItem(itemName);
 
+        } else if (cmd.startsWith("observe ")) {
+            let itemName = cmd.split(" ")[1];
+
+            player.observeItem(itemName);
+            
         } else {
             console.log("Invalid command. Type 'h' for help.");
         }

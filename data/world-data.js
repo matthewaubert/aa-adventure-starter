@@ -53,13 +53,15 @@ module.exports = {
             name: "sandwich",
             description: "A tasty looking sandwich",
             room: 2,
-            isFood: true
+            isFood: true,
+            effect: "Your taste buds explode with flavor and your hunger subsides."
         },
         {
-            name: "potion",
-            description: "This bottle contains a viscous green liquid...",
+            name: "mushrooms",
+            description: "These mushrooms have a strange magical aura about them...",
             room: 5,
-            isFood: true
+            isFood: true,
+            effect: "The world around you begins to shimmer and change into shifting patterns. Your mind is temporarily taken to another plane of existence..."
         },
         {
             name: "sword",

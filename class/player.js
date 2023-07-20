@@ -66,6 +66,7 @@ class Player {
             // splice item from player.items array
             this.items.splice(index, 1);
             console.log(`You eat the ${item.name}.`);
+            console.log(item.effect);
         } else {
             console.log(`You can't eat the ${item.name} because it's not food.`);
         }
@@ -74,6 +75,15 @@ class Player {
     getItemByName(name) {
         // iterate through player items to find item.name equal to name
         return this.items.find(item => item.name === name);
+    }
+
+    observeItem(itemName) {
+        const item = this.getItemByName(itemName); // get item by name from inventory
+        if (item === undefined) { // edge case: item doesn't exist in inventory
+            console.log(`There is no ${itemName} in your inventory.`);
+            return;
+        }
+        console.log(item.description); // console log item's description
     }
 }
 

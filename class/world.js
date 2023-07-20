@@ -44,7 +44,7 @@ class World {
             let newItem;
 
             if (itemData.isFood) {
-                newItem = new Food(itemData.name, itemData.description);
+                newItem = new Food(itemData.name, itemData.description, itemData.effect);
             } else {
                 newItem = new Item(itemData.name, itemData.description);
             }
