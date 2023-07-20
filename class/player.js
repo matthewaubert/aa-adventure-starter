@@ -34,23 +34,40 @@ class Player {
     takeItem(itemName) {
         // splice item from room.items array
         const index = this.currentRoom.items.findIndex(item => item.name === itemName);
+        if (index === -1) { // edge case: item not found in room
+            console.log(`There is no ${itemName} here...`);
+            return;
+        }
         const item = this.currentRoom.items.splice(index, 1);
         this.items.push(...item); // push this item to this player.items array
+        console.log(`You take the ${itemName} and place it in your inventory.`);
     }
 
     dropItem(itemName) {
         // splice item from player.items array
         const index = this.items.findIndex(item => item.name === itemName);
+        if (index === -1) { // edge case: item not found in inventory
+            console.log(`There is no ${itemName} in your inventory...`);
+            return;
+        }
         const item = this.items.splice(index, 1);
         this.currentRoom.items.push(...item); // push this item to room.items array
+        console.log(`You take the ${itemName} from your inventory and drop it.`);
     }
 
     eatItem(itemName) {
         const item = this.getItemByName(itemName); // get item by name
+        const index = this.items.findIndex(item => item.name === itemName);
+        if (index === -1) { // edge case: item not found in inventory
+            console.log(`There is no ${itemName} in your inventory...`);
+            return;
+        }
         if (item.isFood) { // if item is food
             // splice item from player.items array
-            const index = this.items.findIndex(item => item.name === itemName);
             this.items.splice(index, 1);
+            console.log(`You eat the ${item.name}.`);
+        } else {
+            console.log(`You can't eat the ${item.name} because it's not food.`);
         }
     }
 

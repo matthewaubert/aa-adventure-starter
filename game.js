@@ -13,16 +13,19 @@ const rl = readline.createInterface({
 });
 
 function printHelp() {
-    console.log("Controls:")
-    console.log("  Type 'h' for help");
-    console.log("  Type 'q' to quit");
-    console.log("  Type 'l' to look around");
-    console.log("  Type 'i' to check your inventory");
-    console.log("  Type 'take <item>' to take an item");
-    console.log("  Type 'drop <item>' to drop an item");
-    console.log("  Type 'eat <item>' to eat a food item");
-    console.log("  Type 'n', 's', 'e', 'w' to move");
-    console.log("");
+    const messages = [
+        "Controls:",
+        "  Type 'h' for help",
+        "  Type 'q' to quit",
+        "  Type 'l' to look around",
+        "  Type 'i' to check your inventory",
+        "  Type 'take <item>' to take an item",
+        "  Type 'drop <item>' to drop an item",
+        "  Type 'eat <item>' to eat a food item",
+        "  Type 'n', 's', 'e', 'w' to move",
+        ""
+    ];
+    messages.forEach(message => console.log(message));
 }
 
 function startGame() {
