@@ -46,8 +46,12 @@ class Player {
     }
 
     eatItem(itemName) {
-        // Fill this in
-
+        const item = this.getItemByName(itemName); // get item by name
+        if (item.isFood) { // if item is food
+            // splice item from player.items array
+            const index = this.items.findIndex(item => item.name === itemName);
+            this.items.splice(index, 1);
+        }
     }
 
     getItemByName(name) {
@@ -65,6 +69,7 @@ module.exports = {
 /****************************** TESTS ******************************/
 // const { Item } = require("./item");
 // const { Room } = require("./room");
+// const { Food } = require("./food");
 
 // let item = new Item("rock", "just a simple rock");
 // let room = new Room("Test Room", "A test room");
@@ -79,3 +84,16 @@ module.exports = {
 // console.log(player.items.length); // 1
 
 // console.log(player.getItemByName("rock")); // rock item
+
+
+// let food = new Food("sandwich", "a delicious sandwich");
+// let room = new Room("Test Room", "A test room");
+// let player = new Player("player", room);
+
+// player.items.push(food);
+
+// console.log(player.items.length); // 1
+
+// player.eatItem("sandwich");
+
+// console.log(player.items.length); // 0
