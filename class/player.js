@@ -48,8 +48,8 @@ class Player {
     }
 
     getItemByName(name) {
-
-        // Fill this in
+        // iterate through player items to find item.name equal to name
+        return this.items.find(item => item.name === name);
     }
 }
 
