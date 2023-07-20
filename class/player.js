@@ -35,16 +35,14 @@ class Player {
         // splice item from room.items array
         const index = this.currentRoom.items.findIndex(item => item.name === itemName);
         const item = this.currentRoom.items.splice(index, 1);
-        // push this item to this player.items array
-        this.items.push(...item);
+        this.items.push(...item); // push this item to this player.items array
     }
 
     dropItem(itemName) {
         // splice item from player.items array
         const index = this.items.findIndex(item => item.name === itemName);
         const item = this.items.splice(index, 1);
-        // push this item to room.items array
-        this.currentRoom.items.push(...item);
+        this.currentRoom.items.push(...item); // push this item to room.items array
     }
 
     eatItem(itemName) {
