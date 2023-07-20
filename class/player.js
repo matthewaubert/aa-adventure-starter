@@ -32,9 +32,11 @@ class Player {
     }
 
     takeItem(itemName) {
-
-        // Fill this in
-
+        // splice item from room.items array
+        const index = this.currentRoom.items.findIndex(item => item.name === itemName);
+        const item = this.currentRoom.items.splice(index, 1)
+        // push this item to this player.items array
+        this.items.push(...item);
     }
 
     dropItem(itemName) {
@@ -56,3 +58,23 @@ class Player {
 module.exports = {
   Player,
 };
+
+
+
+/****************************** TESTS ******************************/
+// const { Item } = require("./item");
+// const { Room } = require("./room");
+
+// let item = new Item("rock", "just a simple rock");
+// let room = new Room("Test Room", "A test room");
+// let player = new Player("player", room);
+
+// room.items.push(item);
+// console.log(room.items.length); // 1
+// console.log(player.items.length); // 0
+
+// player.takeItem("rock");
+// console.log(room.items.length); // 0
+// console.log(player.items.length); // 1
+
+// console.log(player.getItemByName("rock")); // rock item
